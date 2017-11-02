@@ -10,7 +10,7 @@ I've built this mini-project as part of job interview.
     npm install
 ```
 
- After you install the modules and configured the enviroment, we need to bundle the app.js so:
+ After you install the modules and configured the environment, we bundle the app.js with webpack so:
 
 ```
     npm run bundle
@@ -33,11 +33,12 @@ Moreover, don't forget to run the mongodb on your local machine.
 
 
 ## Stack
-    - Node.JS
-    - Express
-    - React.JS
-    - MongoDB
+-   Node.JS
+-   Express
+-   React.JS
+-   MongoDB
 
+Bundled with Webpack & Babel. Restarting for changes with nodeman.
 
 ## API
 This mini-project works as REST API. The paths are:
@@ -52,7 +53,7 @@ This mini-project works as REST API. The paths are:
 
 ## User Authentication
 Made with PassportJS (PassportLocalStrategy), Validator, and JWT (JSON Web Token).
-User.username is the unique key. 
+User.username is the unique key.
 
 
 
