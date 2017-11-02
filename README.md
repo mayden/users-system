@@ -89,8 +89,8 @@ Hope you like it! :)
 
 ## Future Ideas
 As I worked on this project, I always had ideas to improve and upgrade. So here some of the ideas to implement in the future:
-    - Google API Search City Input
-    - Unit Testing (API)
+-   Google API Search City Input
+-   Unit Testing (API)
 
 
 
