@@ -31,13 +31,13 @@ const styles = {
 const Users = ({
   errors,
   onSubmit,
-  onRowSelection,
   successMessage,
   currentUser,
   users,
   chosenUsers,
   onSearch,
-  filteredUsers
+  filteredUsers,
+  handleCellClick
 }) => (
   <Card className="container">
     <form action="/" onSubmit={onSubmit}>
@@ -54,20 +54,20 @@ const Users = ({
 
       <div>
         <Table
-            onRowSelection={onRowSelection}
             fixedHeader={true}
             fixedFooter={false}
             selectable={true}
             multiSelectable={true}
+            onCellClick={handleCellClick}
         >
           <TableHeader
               displaySelectAll={false}
-              adjustForCheckbox={true}
+              adjustForCheckbox={false}
               enableSelectAll={true}
           >
             <TableRow>
               <TableHeaderColumn colSpan="3" tooltip="Users List" style={{textAlign: 'center'}}>
-                List of Users:
+                List of Users: (You can multiplie select by click)
               </TableHeaderColumn>
             </TableRow>
             <TableRow>
@@ -78,24 +78,21 @@ const Users = ({
             </TableRow>
           </TableHeader>
           <TableBody
-              displayRowCheckbox={true}
+              displayRowCheckbox={false}
               deselectOnClickaway={true}
               showRowHover={false}
               stripedRows={true}
           >
             {filteredUsers.map( (row, index) => (
-                <TableRow  value={row.username} key={row.username}>
-                  <TableRowColumn>{(index+1)}</TableRowColumn>
-                  <TableRowColumn>{row.username}</TableRowColumn>
-                  <TableRowColumn>{row.fullname}</TableRowColumn>
-                  <TableRowColumn>{row.city}</TableRowColumn>
+                <TableRow value={row.username} key={row._id}>
+                  <TableRowColumn data-my-row-identifier={row._id}>{(index+1)}</TableRowColumn>
+                  <TableRowColumn data-my-row-identifier={row._id}>{row.username}</TableRowColumn>
+                  <TableRowColumn data-my-row-identifier={row._id}>{row.fullname}</TableRowColumn>
+                  <TableRowColumn data-my-row-identifier={row._id}>{row.city}</TableRowColumn>
                 </TableRow>
             ))}
           </TableBody>
-          <TableFooter
-              adjustForCheckbox={true}
-          >
-
+          <TableFooter>
           </TableFooter>
         </Table>
       </div>
@@ -113,7 +110,7 @@ Users.propTypes = {
   users: PropTypes.array.isRequired,
   chosenUsers: PropTypes.array.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  onRowSelection: PropTypes.func.isRequired
+  handleCellClick: PropTypes.func.isRequired
 };
 
 export default Users;

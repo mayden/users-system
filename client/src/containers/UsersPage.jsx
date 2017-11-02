@@ -37,11 +37,9 @@ class UsersPage extends React.Component {
       searchTerm: ''
     };
 
-
-
-    this.onRowSelection = this.onRowSelection.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.searchUpdated = this.searchUpdated.bind(this)
+    this.handleCellClick = this.handleCellClick.bind(this)
   }
 
 
@@ -90,27 +88,6 @@ class UsersPage extends React.Component {
     // prevent default action. in this case, action is the form submission event
     event.preventDefault();
 
-    /*
-    // update the user list without rendering the page
-    const tempUsers = this.state.users;
-    const tempChosenUsers = this.state.chosenUsers;
-
-    console.log(tempChosenUsers);
-
-    tempUsers.forEach(function(item)
-    {
-      let indexArray = tempChosenUsers.indexOf(item._id);
-      if(indexArray > -1)
-      {
-        console.log(item._id);
-        tempUsers.splice(indexArray, 1);
-      }
-    });
-
-    this.setState({
-      users: tempUsers
-    });
-    */
 
     // User can't delete himself.
     if(this.state.chosenUsers.indexOf(this.state.currentUser.userId) > -1)
@@ -141,10 +118,26 @@ class UsersPage extends React.Component {
         if (xhr.status === 200) {
           // success
 
+          // update the user list without rendering the page
+          const tempUsers = [];
+          const tempChosenUsers = this.state.chosenUsers;
+
+
+          this.state.users.forEach(function(item, index)
+          {
+            let indexArray = tempChosenUsers.indexOf(item._id);
+
+            if(indexArray <= -1)
+            {
+              tempUsers.push(item);
+            }
+          });
+
 
           // change the component-container state
           this.setState({
-            successMessage: xhr.response.message
+            successMessage: xhr.response.message,
+            users: tempUsers
           });
 
           localStorage.setItem('successMessage', xhr.response.message);
@@ -167,28 +160,39 @@ class UsersPage extends React.Component {
       xhr.send(formData);
     }
 
+
   }
 
-  onRowSelection(rows){
-    console.log(rows);
-    const chosenUsers = [];
+  /**
+   * Retrieving the data according to the user click.
+   * @param rowNumber
+   * @param columnNumber
+   * @param evt
+     */
 
-    for (let i = 0; i < rows.length; i++) {
-      let chosenUsername = this.state.users[rows[i]]._id;
-      let inArray = chosenUsers.indexOf(chosenUsername);
-      console.log(chosenUsername);
-      if(inArray > - 1)
-        chosenUsers.splice(inArray, 1);
-      else
-        chosenUsers.push(chosenUsername);
+  handleCellClick (rowNumber, columnNumber, evt) {
 
+    const chosenUsers = this.state.chosenUsers;
+    const chosenId = evt.target.dataset.myRowIdentifier;
 
-     this.setState({chosenUsers: chosenUsers});
+    let inArray = chosenUsers.indexOf(chosenId);
 
+    if(inArray > - 1)
+    {
+      chosenUsers.splice(inArray, 1);
+    }
+    else
+    {
+      chosenUsers.push(chosenId);
     }
 
-  }
+    this.setState({chosenUsers: chosenUsers});
+}
 
+  /**
+   * Updating the user table according to the search term.
+   * @param term
+     */
   searchUpdated (term) {
     this.setState(
         {
@@ -209,13 +213,13 @@ class UsersPage extends React.Component {
       <Users
         errors={this.state.errors}
         onSubmit={this.handleSubmit}
-        onRowSelection={this.onRowSelection}
         successMessage={this.state.successMessage}
         currentUser={this.state.currentUser}
         users={this.state.users}
         chosenUsers={this.state.chosenUsers}
         onSearch={this.searchUpdated}
         filteredUsers={filteredUsers}
+        handleCellClick={this.handleCellClick}
       />
     );
   }
