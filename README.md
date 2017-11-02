@@ -49,8 +49,11 @@ This mini-project works as REST API. The paths are:
 -   Get Dashboard Message: `` /api/dashboard/``
 
 
+
 ## User Authentication
 Made with PassportJS (PassportLocalStrategy), Validator, and JWT (JSON Web Token).
+User.username is the unique key. 
+
 
 
 
@@ -68,6 +71,7 @@ Made with PassportJS (PassportLocalStrategy), Validator, and JWT (JSON Web Token
 ```
 
 
+
 ## PUG Template Engine
 I didn't understand why to use it, because I am rendering it trough React.JS and designing it with Material-UI.
 
@@ -76,8 +80,10 @@ https://github.com/mayden/PickApp
 
 
 
+
 ## Summary
 Hope you like it! :)
+
 
 
 
@@ -85,6 +91,7 @@ Hope you like it! :)
 As I worked on this project, I always had ideas to improve and upgrade. So here some of the ideas to implement in the future:
     - Google API Search City Input
     - Unit Testing (API)
+
 
 
 ## p.s
