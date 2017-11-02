@@ -41,11 +41,11 @@ Moreover, don't forget to run the mongodb on your local machine.
 
 ## API
 This mini-project works as REST API. The paths are:
-    Retrieve all the users: `` /api/users/getAll``
-    Delete users by IDs: `` /api/users/delete``
-    Get User by Username: `` /api/profile/get``
-    Update User Profile: `` /api/profile/update``
-    Get Dashboard Message: `` /api/dashboard/``
+Retrieve all the users: `` /api/users/getAll``
+Delete users by IDs: `` /api/users/delete``
+Get User by Username: `` /api/profile/get``
+Update User Profile: `` /api/profile/update``
+Get Dashboard Message: `` /api/dashboard/``
 
 
 ## User Authentication
@@ -86,8 +86,9 @@ As I worked on this project, I always had ideas to improve and upgrade. So here 
     - Unit Testing (API)
 
 
-p.s
-If there any bugs, I'm just an human :< Please report me and I'll try to fix them asap.
+## p.s
+
+If there any bugs, please report me and I'll try to fix them asap.
 
 
 
