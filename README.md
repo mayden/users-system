@@ -41,10 +41,15 @@ Moreover, don't forget to run the mongodb on your local machine.
 
 ## API
 This mini-project works as REST API. The paths are:
+
 Retrieve all the users: `` /api/users/getAll``
+
 Delete users by IDs: `` /api/users/delete``
+
 Get User by Username: `` /api/profile/get``
+
 Update User Profile: `` /api/profile/update``
+
 Get Dashboard Message: `` /api/dashboard/``
 
 
