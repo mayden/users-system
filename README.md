@@ -6,15 +6,18 @@ I've built this mini-project as part of job interview.
 
 ``` git clone https://github.com/mayden/users-system.git
     cd users-system
-    npm install```
+    npm install
+```
 
  After you install the modules and configured the enviroemnt, we need to bundle the app.js so:
 
- ``` npm run bundle ```
+``` npm run bundle
+```
 
  And finally, start our system:
 
- ``` npm start ```
+ ``` npm start
+ ```
 
 Moreover, don't forget to run the mongodb on your local machine.
 
