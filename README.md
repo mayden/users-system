@@ -40,6 +40,7 @@ Moreover, don't forget to run the mongodb on your local machine.
 
 Bundled with Webpack & Babel. Restarting for changes with nodeman.
 
+
 ## API
 This mini-project works as REST API. The paths are:
 
@@ -51,11 +52,10 @@ This mini-project works as REST API. The paths are:
 
 
 
+
 ## User Authentication
 Made with PassportJS (PassportLocalStrategy), Validator, and JWT (JSON Web Token).
 User.username is the unique key.
-
-
 
 
 ## Mongoose Schema
@@ -72,18 +72,11 @@ User.username is the unique key.
 ```
 
 
-
 ## PUG Template Engine
 I didn't understand why to use it, because I am rendering it trough React.JS and designing it with Material-UI.
 
 Anyway, Here is an old project of mine, using Jade (previous version of PUG):
 https://github.com/mayden/PickApp
-
-
-
-
-## Summary
-Hope you like it! :)
 
 
 
@@ -94,9 +87,18 @@ As I worked on this project, I always had ideas to improve and upgrade. So here 
 -   Unit Testing (API)
 
 
+## Search Input
+I've implemented the search input by the default we can search in each criteria.
+If we want to change to a select box, we just changing the keys to filter.
+
+```
+const KEYS_TO_FILTERS = ['username', 'fullname', 'city'];
+```
+
+
 
 ## p.s
-
+Hope you like it! :)
 If there any bugs, please report me and I'll try to fix them asap.
 
 
