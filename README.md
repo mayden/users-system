@@ -10,7 +10,7 @@ I've built this mini-project as part of job interview.
     npm install
 ```
 
- After you install the modules and configured the enviroemnt, we need to bundle the app.js so:
+ After you install the modules and configured the enviroment, we need to bundle the app.js so:
 
 ```
     npm run bundle
